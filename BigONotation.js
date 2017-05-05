@@ -59,7 +59,7 @@ function binarySearch(array, key) {
     return -1;
 }
 
-binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 6)
-binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10)
-binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11)
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 6));
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 10));
+console.log(binarySearch([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11));
 

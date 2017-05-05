@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "bigo": "node BigONotation.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Travis Haley",
