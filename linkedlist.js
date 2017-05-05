@@ -9,6 +9,7 @@ function Node(value, next, prev) {
     this.prev = prev;
 }
 
+//Constant time O(1)
 LinkedList.prototype.addToHead = function (value) {
     var newNode = new Node(value, this.head, null);
     //If there is already data in list slide head over and take it's place
@@ -21,6 +22,7 @@ LinkedList.prototype.addToHead = function (value) {
     this.head = newNode;
 }
 
+//Constant time O(1)
 LinkedList.prototype.addToTail = function (value) {
     var newNode = new Node(value, null, this.tail);
     //If there is already data in list slide tail over and take it's place
@@ -33,6 +35,7 @@ LinkedList.prototype.addToTail = function (value) {
     this.tail = newNode;
 }
 
+//Constant time O(1)
 LinkedList.prototype.removeHead = function () {
     //if list is empty get outa here
     if (!this.head) { return null; }
@@ -50,6 +53,7 @@ LinkedList.prototype.removeHead = function () {
     return val;
 }
 
+//Constant time O(1)
 LinkedList.prototype.removeTail = function () {
     //if list is empty get outa here
     if (!this.tail) { return null; }
@@ -65,6 +69,37 @@ LinkedList.prototype.removeTail = function () {
     }
 
     return val;
+}
+
+//Linear time O(n)
+LinkedList.prototype.search = function (searchValue) {
+    //get our search starting point
+    var currentNode = this.head;
+    while (currentNode) {
+        if (currentNode.value === searchValue) {
+            return currentNode.value;
+        }
+        //update our while index so we eventually break out
+        currentNode = currentNode.next;
+    }
+    return null;
+}
+
+//Linear time O(n)
+LinkedList.prototype.indexOf = function (value) {
+    var results = [];
+    var index = 0;
+    var currentNode = this.head;
+
+    while (currentNode) {
+        if (currentNode.value === value) {
+            results.push(index);
+        }
+        index++;
+        currentNode = currentNode.next;
+    }
+
+    return results;
 }
 
 exports.LinkedList = new LinkedList();

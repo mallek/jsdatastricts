@@ -16,11 +16,17 @@ ll.addToTail(10);
 ll.addToTail(20);
 ll.addToTail(30);
 ll.addToHead(100);
+ll.addToTail(100);
+
+console.log(ll.indexOf(100));
+debugger
 
 console.log(ll)
 
 console.log(ll.removeHead());
 console.log(ll.removeTail());
+
+console.log(ll.search(20));
 
 
 debugger;
