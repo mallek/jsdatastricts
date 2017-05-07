@@ -12,7 +12,7 @@ log([1, 2, 3, 4, 5, 6, 7]);
 //Linear Runtime
 //Big O Nitation: O(n)
 function logAll(array) {
-    for (var i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
         console.log(array[i]);
     }
 }
@@ -24,25 +24,25 @@ logAll([1, 2, 3, 4, 5, 6, 7]);
 //Exponential runtime --Avoid on large datasets!!
 //Big O Notation: O(n^2)
 function pairAllValues(array) {
-    for (var i = 0; i < array.length; i++) {
-        for (var j = 0; j < array.length; j++) {
-           console.log(array[i] + array[j])
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array.length; j++) {
+           console.log(array[i] + array[j]);
         }
     }
 }
 
-pairAllValues(['A', 'B', 'C']) // 9 pairs
-pairAllValues(['A', 'B', 'C', 'D']) // 16 pairs
-pairAllValues(['A', 'B', 'C', 'D', 'E']) // 25 pairs
+pairAllValues(['A', 'B', 'C']); // 9 pairs
+pairAllValues(['A', 'B', 'C', 'D']); // 16 pairs
+pairAllValues(['A', 'B', 'C', 'D', 'E']); // 25 pairs
 
 
 //Logarithmic runtime
 // Big O Notation: O(log n)
 function binarySearch(array, key) {
-    var low = 0;
-    var high = array.length - 1;
-    var mid;
-    var element;
+    let low = 0;
+    let high = array.length - 1;
+    let mid;
+    let element;
 
     while (low <= high) {
         mid = Math.floor((low + high) / 2, 10);

@@ -11,7 +11,7 @@ function Node(value, next, prev) {
 
 //Constant time O(1)
 LinkedList.prototype.addToHead = function (value) {
-    var newNode = new Node(value, this.head, null);
+    let newNode = new Node(value, this.head, null);
     //If there is already data in list slide head over and take it's place
     if (this.head) {
         this.head.prev = newNode;
@@ -20,11 +20,11 @@ LinkedList.prototype.addToHead = function (value) {
         this.tail = newNode;
     }
     this.head = newNode;
-}
+};
 
 //Constant time O(1)
 LinkedList.prototype.addToTail = function (value) {
-    var newNode = new Node(value, null, this.tail);
+    let newNode = new Node(value, null, this.tail);
     //If there is already data in list slide tail over and take it's place
     if (this.tail) {
         this.tail.next = newNode;
@@ -33,14 +33,14 @@ LinkedList.prototype.addToTail = function (value) {
         this.head = newNode;
     }
     this.tail = newNode;
-}
+};
 
 //Constant time O(1)
 LinkedList.prototype.removeHead = function () {
     //if list is empty get outa here
     if (!this.head) { return null; }
 
-    var val = this.head.value;
+    let val = this.head.value;
     this.head = this.head.next;
     //if the list is not empty set value of prev node null (popping this node off)
     if (this.head) {
@@ -51,14 +51,14 @@ LinkedList.prototype.removeHead = function () {
     }
 
     return val;
-}
+};
 
 //Constant time O(1)
 LinkedList.prototype.removeTail = function () {
     //if list is empty get outa here
     if (!this.tail) { return null; }
 
-    var val = this.tail.value;
+    let val = this.tail.value;
     this.tail = this.tail.prev;
     //if the list is not empty set value of next node
     if (this.tail) {
@@ -69,12 +69,12 @@ LinkedList.prototype.removeTail = function () {
     }
 
     return val;
-}
+};
 
 //Linear time O(n)
 LinkedList.prototype.search = function (searchValue) {
     //get our search starting point
-    var currentNode = this.head;
+    let currentNode = this.head;
     while (currentNode) {
         if (currentNode.value === searchValue) {
             return currentNode.value;
@@ -83,13 +83,13 @@ LinkedList.prototype.search = function (searchValue) {
         currentNode = currentNode.next;
     }
     return null;
-}
+};
 
 //Linear time O(n)
 LinkedList.prototype.indexOf = function (value) {
-    var results = [];
-    var index = 0;
-    var currentNode = this.head;
+    let results = [];
+    let index = 0;
+    let currentNode = this.head;
 
     while (currentNode) {
         if (currentNode.value === value) {
@@ -100,7 +100,7 @@ LinkedList.prototype.indexOf = function (value) {
     }
 
     return results;
-}
+};
 
 exports.LinkedList = new LinkedList();
 

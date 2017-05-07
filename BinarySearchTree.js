@@ -47,7 +47,7 @@ BST.prototype.contains = function (value) {
             return this.right.contains(value);
         }
     }
-}
+};
 
 //**************************************************
 //              Depth First Traversal
@@ -69,16 +69,16 @@ BST.prototype.depthFirstTraversal = function (iteratorFunc, order) {
     if (order === 'post-order') {
         iteratorFunc(this.value);
     }
-}
+};
 
 //**************************************************
 //              Breadth First Traversal
 //**************************************************
 
 BST.prototype.breadthFirstTraversal = function (iteratorFunc) {
-    var queue = [this];
+    let queue = [this];
     while (queue.length) {
-        var treeNode = queue.shift();
+        let treeNode = queue.shift();
         iteratorFunc(treeNode);
         if (treeNode.left) {
             queue.push(treeNode.left);
@@ -87,7 +87,7 @@ BST.prototype.breadthFirstTraversal = function (iteratorFunc) {
             queue.push(treeNode.right);
         }
     }
-}
+};
 
 //**************************************************
 //              Get Smallest Value
@@ -98,7 +98,7 @@ BST.prototype.getMinVal = function () {
     } else {
         return this.left.getMinVal();
     }
-}
+};
 
 //**************************************************
 //              Get Largest Value
@@ -109,14 +109,14 @@ BST.prototype.getMaxVal = function () {
     } else {
         return this.right.getMaxVal();
     }
-}
+};
 
 
 //**************************************************
 //                     TESTING
 //**************************************************
 
-var bst = new BST(50);
+let bst = new BST(50);
 bst.insert(30);
 bst.insert(70);
 bst.insert(100);
@@ -140,25 +140,25 @@ console.log(bst.contains(10));  //true
 console.log(bst.contains(105));  //true
 console.log(bst.contains(15));  //false
 
-console.log('---------------------------------------------------')
+console.log('---------------------------------------------------');
 bst.depthFirstTraversal(log, 'in-order');
-console.log('---------------------------------------------------')
+console.log('---------------------------------------------------');
 bst.depthFirstTraversal(log, 'pre-order');
-console.log('---------------------------------------------------')
+console.log('---------------------------------------------------');
 bst.depthFirstTraversal(log, 'post-order');
 
 function log(value) {
     console.log(value);
 }
 
-console.log('---------------------------------------------------')
+console.log('---------------------------------------------------');
 bst.breadthFirstTraversal(logNodeValue);
 
 function logNodeValue(node) {
-    console.log(node.value)
+    console.log(node.value);
 }
 
-console.log('---------------------------------------------------')
+console.log('---------------------------------------------------');
 console.log(bst.getMinVal());
 console.log(bst.getMaxVal());
 

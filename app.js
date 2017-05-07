@@ -1,4 +1,4 @@
-var ll = require('./linkedlist.js').LinkedList;
+let ll = require('./linkedlist.js').LinkedList;
 
 // console.log(ll);
 // ll.addToHead(100);
@@ -19,9 +19,9 @@ ll.addToHead(100);
 ll.addToTail(100);
 
 console.log(ll.indexOf(100));
-debugger
 
-console.log(ll)
+
+console.log(ll);
 
 console.log(ll.removeHead());
 console.log(ll.removeTail());
