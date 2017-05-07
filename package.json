@@ -8,6 +8,7 @@
     "bigo": "node BigONotation.js",
     "bst": "node BinarySearchTree.js",
     "ht": "node HashTable.js",
+    "docs": "jsdoc .\\ -r -c jsdoc.conf.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Travis Haley",
