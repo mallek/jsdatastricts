@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: linkedlist.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: linkedlist.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * A linked list only knows about it's head and tail,
+ * each node knows how to find the next node
+ * @constructor
+ */
+function LinkedList() {
+    this.head = null;
+    this.tail = null;
+}
+
+/**
+ * A node in a linked list will know it's value and the nodes to either side of it
+ * @param value
+ * @param next
+ * @param prev
+ * @constructor
+ */
+function Node(value, next, prev) {
+    this.value = value;
+    this.next = next;
+    this.prev = prev;
+}
+
+/**
+ * Add a new value to the beginning of the linked list
+ * Constant time O(1)
+ * @param value
+ */
+LinkedList.prototype.addToHead = function (value) {
+    let newNode = new Node(value, this.head, null);
+    //If there is already data in list slide head over and take it's place
+    if (this.head) {
+        this.head.prev = newNode;
+    //this is the first node in the list so set tail to this node also
+    } else {
+        this.tail = newNode;
+    }
+    this.head = newNode;
+};
+
+
+/**
+ * Add a new node to the tail of the linked list
+ * Constant time O(1)
+ * @param value
+ */
+LinkedList.prototype.addToTail = function (value) {
+    let newNode = new Node(value, null, this.tail);
+    //If there is already data in list slide tail over and take it's place
+    if (this.tail) {
+        this.tail.next = newNode;
+    //this is the first node in the list so set head to this node also
+    } else {
+        this.head = newNode;
+    }
+    this.tail = newNode;
+};
+
+/**
+ * remove the head node of the linked list returning the value stored
+ * Constant time O(1)
+ * @returns {*}
+ */
+LinkedList.prototype.removeHead = function () {
+    //if list is empty get outa here
+    if (!this.head) { return null; }
+
+    let val = this.head.value;
+    this.head = this.head.next;
+    //if the list is not empty set value of prev node null (popping this node off)
+    if (this.head) {
+        this.head.prev = null;
+    //list is now empty so set tail to null
+    } else {
+        this.tail = null;
+    }
+
+    return val;
+};
+
+/**
+ * Removde the end of the linked list returning the value
+ * Constant time O(1)
+ * @returns {*}
+ */
+LinkedList.prototype.removeTail = function () {
+    //if list is empty get outa here
+    if (!this.tail) { return null; }
+
+    let val = this.tail.value;
+    this.tail = this.tail.prev;
+    //if the list is not empty set value of next node
+    if (this.tail) {
+        this.tail.next = null;
+    //list is now empty so set head to null
+    } else {
+        this.head = null;
+    }
+
+    return val;
+};
+
+
+/**
+ * Searching the linked list will require traversing each node once
+ * Linear time O(n)
+ * @param searchValue
+ * @returns {*}
+ */
+LinkedList.prototype.search = function (searchValue) {
+    //get our search starting point
+    let currentNode = this.head;
+    while (currentNode) {
+        if (currentNode.value === searchValue) {
+            return currentNode.value;
+        }
+        //update our while index so we eventually break out
+        currentNode = currentNode.next;
+    }
+    return null;
+};
+
+/**
+ * finding the index of items will require visiting each node of the linked list
+ * Linear time O(n)
+ * @param value
+ * @returns {Array}
+ */
+LinkedList.prototype.indexOf = function (value) {
+    let results = [];
+    let index = 0;
+    let currentNode = this.head;
+
+    while (currentNode) {
+        if (currentNode.value === value) {
+            results.push(index);
+        }
+        index++;
+        currentNode = currentNode.next;
+    }
+
+    return results;
+};
+
+exports.LinkedList = new LinkedList();
+
+
+
+
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="BST.html">BST</a></li><li><a href="HashNode.html">HashNode</a></li><li><a href="HashTable.html">HashTable</a></li><li><a href="LinkedList.html">LinkedList</a></li><li><a href="Node.html">Node</a></li></ul><h3>Global</h3><ul><li><a href="global.html#binarySearch">binarySearch</a></li><li><a href="global.html#log">log</a></li><li><a href="global.html#logAll">logAll</a></li><li><a href="global.html#pairAllValues">pairAllValues</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a> on Sun May 07 2017 15:23:17 GMT-0600 (Mountain Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
