@@ -1,15 +1,31 @@
+/**
+ * A linked list only knows about it's head and tail,
+ * each node knows how to find the next node
+ * @constructor
+ */
 function LinkedList() {
     this.head = null;
     this.tail = null;
 }
 
+/**
+ * A node in a linked list will know it's value and the nodes to either side of it
+ * @param value
+ * @param next
+ * @param prev
+ * @constructor
+ */
 function Node(value, next, prev) {
     this.value = value;
     this.next = next;
     this.prev = prev;
 }
 
-//Constant time O(1)
+/**
+ * Add a new value to the beginning of the linked list
+ * Constant time O(1)
+ * @param value
+ */
 LinkedList.prototype.addToHead = function (value) {
     let newNode = new Node(value, this.head, null);
     //If there is already data in list slide head over and take it's place
@@ -22,7 +38,12 @@ LinkedList.prototype.addToHead = function (value) {
     this.head = newNode;
 };
 
-//Constant time O(1)
+
+/**
+ * Add a new node to the tail of the linked list
+ * Constant time O(1)
+ * @param value
+ */
 LinkedList.prototype.addToTail = function (value) {
     let newNode = new Node(value, null, this.tail);
     //If there is already data in list slide tail over and take it's place
@@ -35,7 +56,11 @@ LinkedList.prototype.addToTail = function (value) {
     this.tail = newNode;
 };
 
-//Constant time O(1)
+/**
+ * remove the head node of the linked list returning the value stored
+ * Constant time O(1)
+ * @returns {*}
+ */
 LinkedList.prototype.removeHead = function () {
     //if list is empty get outa here
     if (!this.head) { return null; }
@@ -53,7 +78,11 @@ LinkedList.prototype.removeHead = function () {
     return val;
 };
 
-//Constant time O(1)
+/**
+ * Removde the end of the linked list returning the value
+ * Constant time O(1)
+ * @returns {*}
+ */
 LinkedList.prototype.removeTail = function () {
     //if list is empty get outa here
     if (!this.tail) { return null; }
@@ -71,7 +100,13 @@ LinkedList.prototype.removeTail = function () {
     return val;
 };
 
-//Linear time O(n)
+
+/**
+ * Searching the linked list will require traversing each node once
+ * Linear time O(n)
+ * @param searchValue
+ * @returns {*}
+ */
 LinkedList.prototype.search = function (searchValue) {
     //get our search starting point
     let currentNode = this.head;
@@ -85,7 +120,12 @@ LinkedList.prototype.search = function (searchValue) {
     return null;
 };
 
-//Linear time O(n)
+/**
+ * finding the index of items will require visiting each node of the linked list
+ * Linear time O(n)
+ * @param value
+ * @returns {Array}
+ */
 LinkedList.prototype.indexOf = function (value) {
     let results = [];
     let index = 0;

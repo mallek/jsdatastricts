@@ -1,5 +1,8 @@
-//Constant runtime
-// Big O Notation: O(1)
+/**
+ * Logging an array is Constant runtime
+ * Big O Notation: O(1)
+ * @param array
+ */
 function log(array) {
     console.log(array[0]);
     console.log(array[1]);
@@ -8,9 +11,11 @@ function log(array) {
 log([1, 2, 3, 4]);
 log([1, 2, 3, 4, 5, 6, 7]);
 
-
-//Linear Runtime
-//Big O Nitation: O(n)
+/**
+ * logAll is Linear Runtime
+ * Big O Nitation: O(n)
+ * @param array
+ */
 function logAll(array) {
     for (let i = 0; i < array.length; i++) {
         console.log(array[i]);
@@ -20,9 +25,11 @@ function logAll(array) {
 logAll([1, 2, 3, 4]);
 logAll([1, 2, 3, 4, 5, 6, 7]);
 
-
-//Exponential runtime --Avoid on large datasets!!
-//Big O Notation: O(n^2)
+/**
+ * Exponential runtime --Avoid on large datasets!!
+ * Big O Notation: O(n^2)
+ * @param array
+ */
 function pairAllValues(array) {
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array.length; j++) {
@@ -35,9 +42,13 @@ pairAllValues(['A', 'B', 'C']); // 9 pairs
 pairAllValues(['A', 'B', 'C', 'D']); // 16 pairs
 pairAllValues(['A', 'B', 'C', 'D', 'E']); // 25 pairs
 
-
-//Logarithmic runtime
-// Big O Notation: O(log n)
+/**
+ * Logarithmic runtime
+ * Big O Notation: O(log n)
+ * @param array
+ * @param key
+ * @returns {*}
+ */
 function binarySearch(array, key) {
     let low = 0;
     let high = array.length - 1;

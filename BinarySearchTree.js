@@ -1,3 +1,8 @@
+/**
+ * Binary Search Tree Constructor Function
+ * @param value
+ * @constructor
+ */
 function BST(value) {
     this.value = value;
     this.left = null;
@@ -8,6 +13,10 @@ function BST(value) {
 //                     Insert
 //**************************************************
 
+/**
+ * Insert a new value in the tree
+ * @param value
+ */
 BST.prototype.insert = function (value) {
     if (value <= this.value) {
         if (!this.left) {
@@ -29,6 +38,11 @@ BST.prototype.insert = function (value) {
 //                     Contains
 //**************************************************
 
+/**
+ * Search for if a Binary Search Tree contains a value
+ * @param value
+ * @returns {boolean}
+ */
 BST.prototype.contains = function (value) {
     if (value === this.value) {
         return true;
@@ -53,6 +67,12 @@ BST.prototype.contains = function (value) {
 //              Depth First Traversal
 //**************************************************
 
+/**
+ * Will traverse a binary search tree and apply iteratorFunc to all nodes in tree
+ * This starts at top and traverses down in the order provided
+ * @param iteratorFunc
+ * @param order - possible 'pre-order', 'in-order', 'post-order'
+ */
 BST.prototype.depthFirstTraversal = function (iteratorFunc, order) {
     if (order === 'pre-order') {
         iteratorFunc(this.value);
@@ -75,6 +95,11 @@ BST.prototype.depthFirstTraversal = function (iteratorFunc, order) {
 //              Breadth First Traversal
 //**************************************************
 
+/**
+ * reads a binary search tree from top to bottom left to right
+ * one level at a time
+ * @param iteratorFunc
+ */
 BST.prototype.breadthFirstTraversal = function (iteratorFunc) {
     let queue = [this];
     while (queue.length) {
@@ -92,6 +117,10 @@ BST.prototype.breadthFirstTraversal = function (iteratorFunc) {
 //**************************************************
 //              Get Smallest Value
 //**************************************************
+/**
+ * Get smallest value
+ * @returns {*}
+ */
 BST.prototype.getMinVal = function () {
     if (!this.left) {
         return this.value;
@@ -103,6 +132,10 @@ BST.prototype.getMinVal = function () {
 //**************************************************
 //              Get Largest Value
 //**************************************************
+/**
+ * Get Largest Value
+ * @returns {*}
+ */
 BST.prototype.getMaxVal = function () {
     if (!this.right) {
         return this.value;

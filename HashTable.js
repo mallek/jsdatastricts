@@ -1,12 +1,23 @@
 //* *************************************************
 //          HASH TABLE CONSTRUCTORS
 //* *************************************************
-
+/**
+ * Hashtable Constructor Method
+ * @param size
+ * @constructor
+ */
 function HashTable(size) {
     this.buckets = Array(size);
     this.numBuckets = this.buckets.length;
 }
 
+/**
+ * A HashNode holds the values to be stored in the hashtable
+ * @param key
+ * @param value
+ * @param next
+ * @constructor
+ */
 function HashNode(key, value, next) {
     this.key = key;
     this.value = value;
@@ -16,7 +27,11 @@ function HashNode(key, value, next) {
 //* *************************************************
 //                     HASH
 //* *************************************************
-
+/**
+ * Function to hash a given piece of data into a integer value
+ * @param key
+ * @returns {number}
+ */
 HashTable.prototype.hash = function(key) {
     let total = 0;
     for (let i = 0; i < key.length; i++) {
@@ -31,6 +46,11 @@ HashTable.prototype.hash = function(key) {
 //                     INSERT
 //* *************************************************
 
+/**
+ * Insert a key value pair into the hashtable
+ * @param key
+ * @param value
+ */
 HashTable.prototype.insert = function(key, value) {
     let index = this.hash(key);
     console.log('INDEX: ', index);
@@ -57,7 +77,11 @@ HashTable.prototype.insert = function(key, value) {
 //* *************************************************
 //                     GET
 //* *************************************************
-
+/**
+ *  Gets a value from the hashtable based on key
+ * @param key
+ * @returns {null} if not found, or value
+ */
 HashTable.prototype.get = function(key) {
     let index = this.hash(key);
     if (!this.buckets[index]) {
@@ -77,7 +101,10 @@ HashTable.prototype.get = function(key) {
 //* *************************************************
 //                     GET ALL
 //* *************************************************
-
+/**
+ * Get all values from a hashtable
+ * @returns {Array}
+ */
 HashTable.prototype.retrieveAll = function() {
     let results = [];
     for (let i = 0; i < this.numBuckets; i++) {
