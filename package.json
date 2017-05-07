@@ -1,12 +1,13 @@
 {
   "name": "jsdatastructs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Javascript data structures implimentation",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "bigo": "node BigONotation.js",
     "bst": "node BinarySearchTree.js",
+    "ht": "node HashTable.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Travis Haley",
